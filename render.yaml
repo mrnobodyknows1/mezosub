@@ -1,0 +1,45 @@
+# Render Blueprint — MezoSub background worker. The web app runs on Vercel; this process indexes chain events,
+# runs the billing scheduler (keeper), delivers webhooks and writes notifications.
+services:
+  - type: worker
+    name: mezosub-worker
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --include=dev
+    startCommand: npm run worker
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      # Shared Postgres (Neon/Supabase) — the same DATABASE_URL as the Vercel web app.
+      - key: DATABASE_SCHEMA
+        value: mezosub
+      - key: DATABASE_URL
+        sync: false
+      # Chain + contracts (same values as the web app)
+      - key: NEXT_PUBLIC_MEZO_RPC_URL
+        value: https://rpc.test.mezo.org
+      - key: NEXT_PUBLIC_MUSD_ADDRESS
+        value: "0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503"
+      - key: NEXT_PUBLIC_MANAGER_ADDRESS
+        sync: false
+      - key: NEXT_PUBLIC_REGISTRY_ADDRESS
+        sync: false
+      - key: NEXT_PUBLIC_DEPLOY_BLOCK
+        sync: false
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false
+      # Keeper: gas + KEEPER_ROLE only. Set it HERE, never on the web deployment.
+      - key: KEEPER_PRIVATE_KEY
+        sync: false
+      # Scheduler tuning
+      - key: BILLING_DEMO_MODE
+        value: "1"
+      - key: RETRY_DELAYS_SECONDS
+        value: "86400,172800"
+      - key: CONFIRMATIONS
+        value: "2"
+      - key: WORKER_INTERVAL_MS
+        value: "15000"

@@ -1,0 +1,28 @@
+node_modules/
+.next/
+out/
+.env
+.env*.local
+contracts/.env
+contracts/artifacts/
+contracts/cache/
+contracts/types/
+*.tsbuildinfo
+.DS_Store
+.vercel
+coverage/
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+.data/
+next-env.d.ts
+
+# local audit runs and ledger (pashov solidity-auditor)
+contracts/.solidity-auditor/
+.env*
+
+# demo video (large binary)
+demo/*.mp4
+
+# demo assets stay local
+demo/

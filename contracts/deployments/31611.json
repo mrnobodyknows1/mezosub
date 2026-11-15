@@ -1,0 +1,47 @@
+{
+  "chainId": 31611,
+  "deployBlock": 16751961,
+  "keeper": "0x79078Eca0064D01EE01812b3068A41535df6eD80",
+  "manager": "0xF5023D3D4f350102B855F1b0348ceED299104AD8",
+  "minInterval": 300,
+  "musd": "0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503",
+  "registry": "0xC8AA181428732D4D1B2A2F2b5b5839baEb402d00",
+  "txs": [
+    {
+      "hash": "0xcaa979aeea201c03d2a10e72e2b9d82114734927f0c9203d5b954caaf673b7da",
+      "type": "CREATE",
+      "contract": "MerchantRegistry",
+      "function": null,
+      "address": "0xc8aa181428732d4d1b2a2f2b5b5839baeb402d00",
+      "block": 16751961,
+      "status": 1
+    },
+    {
+      "hash": "0xef76b1264cebf54d2cdee8833b6ff60121d002fcaf38f4e281ebce191d89b54d",
+      "type": "CREATE",
+      "contract": "SubscriptionManager",
+      "function": null,
+      "address": "0xf5023d3d4f350102b855f1b0348ceed299104ad8",
+      "block": 16751963,
+      "status": 1
+    },
+    {
+      "hash": "0xc9f0b5d24e801b91226b8865ac4af9f4bda07d90eafc858ca4cfebafc88ca716",
+      "type": "CALL",
+      "contract": "SubscriptionManager",
+      "function": "setTokenAllowed(address,bool)",
+      "address": "0xf5023d3d4f350102b855f1b0348ceed299104ad8",
+      "block": 16751964,
+      "status": 1
+    },
+    {
+      "hash": "0x0f6d62c6e83e2c56496e036741b28ee56b58516ffe8e07e5c70f89c2003c8394",
+      "type": "CALL",
+      "contract": "SubscriptionManager",
+      "function": "grantRole(bytes32,address)",
+      "address": "0xf5023d3d4f350102b855f1b0348ceed299104ad8",
+      "block": 16751965,
+      "status": 1
+    }
+  ]
+}
